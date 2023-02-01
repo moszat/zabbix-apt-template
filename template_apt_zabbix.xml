@@ -97,7 +97,7 @@
                     <uuid>a7a43bbdcdc448b4851ff2d13150af3f</uuid>
                     <name>Last update</name>
                     <key>vfs.file.time[/var/cache/apt/pkgcache.bin]</key>
-                    <delay>1d</delay>
+                    <delay>1h</delay>
                     <history>1w</history>
                     <trends>0</trends>
                     <units>unixtime</units>
