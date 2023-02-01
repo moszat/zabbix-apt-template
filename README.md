@@ -10,13 +10,25 @@ Linux distribution with apt package management
 
 ## Setup on Zabbix client
 
-    # for Zabbix agent
+For Zabbix agent
+
     cp apt.conf /etc/zabbix/zabbix_agentd.d/
     systemctl restart zabbix-agent
 
-    # for Zabbix agent2
+For Zabbix agent2
+
     cp apt.conf /etc/zabbix/zabbix_agent2.d/plugins.d/
     systemctl restart zabbix-agent2
+
+Maybe on slow systems the Updates/Security updates items can return with timeout error. Please test running time of /usr/lib/update-notifier/apt-check, if the default 3 second is not enough, increase the value of timout in the configuration of Zabbix agent:
+
+    ### Option: Timeout
+    #	Spend no more than Timeout seconds on processing
+    #
+    # Mandatory: no
+    # Range: 1-30
+    # Default:
+    # Timeout=3
 
 ## Setup on Zabbix server
 Import template_apt_zabbix.xml and attach it to your host
