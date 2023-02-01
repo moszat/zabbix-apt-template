@@ -44,7 +44,7 @@ Import template_apt_zabbix.xml and attach it to your host
 |Name|Description|Expression|Severity|Dependencies and additional info|
 |---|---|---|---|---|
 |There was no update for more than 1 day|APT's database is older than 1 day|fuzzytime(/Template APT DEB package management/vfs.file.time[/var/cache/apt/pkgcache.bin],86400s)=0|WARNING||
-|Reboot needed|/var/run/reboot-required is exsist: /var/run/reboot-required|last(/Template APT DEB package management/vfs.file.exists[/var/run/reboot-required])=1|WARNING||
+|Reboot needed|/var/run/reboot-required is exsist|last(/Template APT DEB package management/vfs.file.exists[/var/run/reboot-required])=1|WARNING||
 |There are {ITEM.LASTVALUE1} updates|Updates more than 0|last(/Template APT DEB package management/apt.updates)>0|INFO||
 |There are {ITEM.LASTVALUE1} security updates|Security updates more than 0|last(/Template APT DEB package management/apt.security)>0|WARNING||
 
