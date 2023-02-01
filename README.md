@@ -2,8 +2,7 @@
 ## Overview
 Zabbix template for APT package management
 
-For Zabbix version: 3.0 and higher. (according to Zabbix documentation, tested on version 6.0) This template is developed to monitor APT database status by Zabbix that works without any external scripts.
-The template use the apt-check python tool provided by update-notifier-common package.
+For Zabbix version: 3.0 and higher. (according to Zabbix documentation, tested on version 6.0) This template is developed to monitor APT database status by Zabbix.
 
 ## Requirements
 Linux distribution with apt package management
@@ -20,7 +19,7 @@ For Zabbix agent2
     cp apt.conf /etc/zabbix/zabbix_agent2.d/plugins.d/
     systemctl restart zabbix-agent2
 
-Maybe on slow systems the Updates/Security updates items can return with timeout error. Please test running time of /usr/lib/update-notifier/apt-check, if the default 3 second is not enough, increase the value of timeout in the configuration of Zabbix agent:
+Maybe on systems with slow I/O the Updates/Security updates items can return with timeout error. If the default 3 second is not enough, increase the value of Timeout in the configuration of Zabbix agent:
 
     ### Option: Timeout
     #	Spend no more than Timeout seconds on processing
