@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
-    <version>3.0</version>
-    <date>2023-02-01T09:18:56Z</date>
+    <version>6.0</version>
+    <date>2023-05-03T11:23:38Z</date>
     <groups>
         <group>
-            <uuid>6b779874cfab4ad6acbdde56e87fd3c4</uuid>
+            <uuid>0c65fd6150ed4da1b1a7e56eeddccd82</uuid>
             <name>Templates/APT DEB package management</name>
         </group>
     </groups>
@@ -15,7 +15,7 @@
             <name>Template APT DEB package management</name>
             <groups>
                 <group>
-                    <name>Templates/DEB package management</name>
+                    <name>Templates/APT DEB package management</name>
                 </group>
             </groups>
             <items>
@@ -39,7 +39,7 @@
                     <triggers>
                         <trigger>
                             <uuid>0fd29198d0304549a93075132e06ba24</uuid>
-                            <expression>last(/Template APT DEB package management/apt.security)&gt;0</expression>
+                            <expression>nodata(/Template APT DEB package management/apt.security,3660)=0 and last(/Template APT DEB package management/apt.security)&gt;0</expression>
                             <name>There are {ITEM.LASTVALUE1} security updates</name>
                             <priority>WARNING</priority>
                         </trigger>
@@ -61,7 +61,7 @@
                     <triggers>
                         <trigger>
                             <uuid>f6356c16840c41c8892ee352157913c7</uuid>
-                            <expression>last(/Template APT DEB package management/apt.updates)&gt;0</expression>
+                            <expression>nodata(/Template APT DEB package management/apt.updates,3660)=0 and last(/Template APT DEB package management/apt.updates)&gt;0</expression>
                             <name>There are {ITEM.LASTVALUE1} updates</name>
                             <priority>INFO</priority>
                         </trigger>
@@ -87,7 +87,7 @@
                     <triggers>
                         <trigger>
                             <uuid>92d153697a1547beb83ae1700c349335</uuid>
-                            <expression>last(/Template APT DEB package management/vfs.file.exists[/var/run/reboot-required])=1</expression>
+                            <expression>nodata(/Template APT DEB package management/vfs.file.exists[/var/run/reboot-required],3660)=0 and last(/Template APT DEB package management/vfs.file.exists[/var/run/reboot-required])=1</expression>
                             <name>Reboot needed</name>
                             <priority>WARNING</priority>
                         </trigger>
@@ -114,7 +114,7 @@
                     <triggers>
                         <trigger>
                             <uuid>ff79d4ca7e2b4f0aabec1d0a7a41eceb</uuid>
-                            <expression>fuzzytime(/Template APT DEB package management/vfs.file.time[/var/cache/apt/pkgcache.bin],86400s)=0</expression>
+                            <expression>nodata(/Template APT DEB package management/vfs.file.time[/var/cache/apt/pkgcache.bin],3660)=0 and fuzzytime(/Template APT DEB package management/vfs.file.time[/var/cache/apt/pkgcache.bin],86400s)=0</expression>
                             <name>There was no update for more than 1 day</name>
                             <priority>WARNING</priority>
                         </trigger>
